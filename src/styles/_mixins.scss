@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Адаптив (Mobile-first: от указанной ширины и больше)
+@mixin up($breakpoint) {
+  $size: map.get($breakpoints, $breakpoint);
+
+  @if $size {
+    @media (min-width: $size) {
+      @content;
+    }
+  } @else {
+    @warn "Брейкпоинт `#{$breakpoint}` не найден в $breakpoints.";
+  }
+}
+
+// Адаптив (Desktop-first: меньше указанной ширины)
+@mixin down($breakpoint) {
+  $size: map.get($breakpoints, $breakpoint);
+
+  @if $size {
+    @media (max-width: ($size - 0.02px)) {
+      @content;
+    }
+  } @else {
+    @warn "Брейкпоинт `#{$breakpoint}` не найден в $breakpoints.";
+  }
+}
+
+// Обрезка текста с многоточием
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,85 @@
+.section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 36px;
+  letter-spacing: -0.02em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+
+  @include up('md') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card {
+  height: 100%;
+  padding: 28px;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $color-border-hover;
+  }
+}
+
+.cardWide {
+  @include up('md') {
+    grid-column: span 2;
+  }
+}
+
+.tag {
+  font-family: $font-family-mono;
+  font-size: 0.78rem;
+  color: $color-secondary;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.cardDesc {
+  color: $color-text-muted;
+  font-size: 0.95rem;
+  margin-bottom: 22px;
+  flex-grow: 1;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  font-family: $font-family-mono;
+  font-size: 0.78rem;
+  padding: 5px 10px;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid $color-border;
+  color: $color-text;
+}

@@ -1,0 +1,32 @@
+// Палитра (Dark Modern / AI Tech)
+$color-bg: #09090b;
+$color-surface: #121215;
+$color-surface-hover: #18181c;
+$color-border: rgba(255, 255, 255, 0.08);
+$color-border-hover: rgba(139, 92, 246, 0.4);
+
+$color-text: #fafafa;
+$color-text-muted: #a1a1aa;
+
+$color-primary: #8b5cf6; // Violet
+$color-secondary: #06b6d4; // Cyan
+$gradient-accent: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+
+// Типографика и геометрия
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-mono: 'JetBrains Mono', monospace;
+
+$radius-sm: 8px;
+$radius-md: 14px;
+$radius-lg: 22px;
+$container-max: 1140px;
+
+// Брейкпоинты
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1280px,
+);
+
+$z-header: 100;

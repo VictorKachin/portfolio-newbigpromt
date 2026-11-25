@@ -1,0 +1,141 @@
+.section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.topBar {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+
+  @include up('md') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tab {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  font-size: 0.88rem;
+  color: $color-text-muted;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color-text;
+    border-color: $color-border-hover;
+  }
+}
+
+.tabActive {
+  background: $color-primary;
+  border-color: $color-primary;
+  color: $color-text;
+}
+
+.list {
+  display: grid;
+  gap: 20px;
+}
+
+.card {
+  padding: 28px;
+  border-radius: $radius-lg;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+
+  &:hover {
+    border-color: $color-border-hover;
+    transform: translateY(-2px);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  @include up('md') {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.metric {
+  font-family: $font-family-mono;
+  font-size: 0.82rem;
+  color: #34d399;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 12px;
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.description {
+  color: $color-text-muted;
+  max-width: 780px;
+  margin-bottom: 22px;
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-family: $font-family-mono;
+  font-size: 0.78rem;
+  padding: 4px 10px;
+  border-radius: $radius-sm;
+  background: rgba(255, 255, 255, 0.04);
+  color: $color-text-muted;
+}
+
+.caseLink {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: $color-primary;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

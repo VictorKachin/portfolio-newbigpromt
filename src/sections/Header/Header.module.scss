@@ -1,0 +1,86 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-header;
+  background: rgba(9, 9, 11, 0.75);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid $color-border;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: $font-family-mono;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.accent {
+  background: $gradient-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav {
+  display: flex;
+  gap: 28px;
+
+  @include down('md') {
+    position: fixed;
+    top: 61px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: $color-bg;
+    padding: 24px 20px;
+    border-bottom: 1px solid $color-border;
+    transform: translateY(-120%);
+    transition: transform 0.3s ease;
+  }
+}
+
+.navOpen {
+  @include down('md') {
+    transform: translateY(0);
+  }
+}
+
+.link {
+  font-size: 0.95rem;
+  color: $color-text-muted;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $color-text;
+  }
+}
+
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  @include down('md') {
+    display: flex;
+  }
+}
+
+.burgerLine {
+  width: 24px;
+  height: 2px;
+  background: $color-text;
+  border-radius: 2px;
+}

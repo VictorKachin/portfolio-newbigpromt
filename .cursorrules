@@ -1,0 +1,35 @@
+# Project Rules: Vite + React + TypeScript + SCSS Modules
+
+## Tech Stack
+- Framework: React 18+ with TypeScript (strict mode)
+- Build tool: Vite
+- Styling: Native SCSS Modules (`*.module.scss`) with `vite-css-modules` strict typing
+
+## Component & TypeScript Guidelines
+- Create functional components using named exports (`export const ComponentName = ...`).
+- Define explicit TypeScript interfaces for props (`interface ComponentNameProps`). Never use `any`.
+- Keep components focused and modular; extract reusable logic into custom hooks.
+- Use path alias `@/` for imports from `src/` (e.g., `@/components/...`, `@/hooks/...`).
+- Always use inline type imports (e.g., import { useState, type FormEvent } from 'react') because verbatimModuleSyntax is enabled.
+- In `tsconfig.app.json`, always specify `"types": ["vite/client"]` (a requirement in TypeScript 6) and use `"paths"` without a `baseUrl`.
+- Always use `import type` for types (e.g., `import { useState, type FormEvent } from 'react'`) due to the enabled `verbatimModuleSyntax` option.
+
+
+## Styling Guidelines (SCSS Modules)
+- **Strict isolation**: Always style components via `ComponentName.module.scss`. Never use Tailwind CSS, inline `style={{...}}` (except truly dynamic runtime values like coordinates), or global CSS classes inside components.
+- **Import convention**: Always import styles as `styles`:
+  `import styles from './ComponentName.module.scss'`
+- **Naming convention**: Use strict `camelCase` for all CSS class names (e.g., `.cardHeader`, `.isActive`) so they can be accessed via dot notation (`styles.cardHeader`) and validated by TypeScript.
+- **Auto-injected SCSS tokens**: `src/styles/_index.scss` (`_variables.scss` and `_mixins.scss`) is automatically injected into every `.scss` file via `vite.config.ts`.
+  - **DO NOT** write `@use` or `@import` for project variables or mixins inside `*.module.scss`.
+  - Use variables (e.g., `$color-primary`, `$radius-md`) and mixins (e.g., `@include up('md') { ... }`) directly.
+- **Nesting & Selectors**:
+  - Limit SCSS nesting to a maximum of 3 levels.
+  - Use `&` only for pseudo-classes (`&:hover`, `&:focus-visible`), pseudo-elements (`&::before`), and state modifiers—never to concatenate class names (avoid `&__element` or `&--modifier`).
+- **Dynamic classes**: Combine conditional classes using `clsx` (if installed) or filtered arrays:
+  `[styles.button, isDisabled && styles.disabled].filter(Boolean).join(' ')`
+
+## Output Format
+When generating a new component, provide two clearly separated code blocks:
+1. `ComponentName.tsx`
+2. `ComponentName.module.scss`

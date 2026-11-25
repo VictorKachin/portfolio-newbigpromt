@@ -1,0 +1,104 @@
+.hero {
+  position: relative;
+  padding: 150px 20px 90px;
+  overflow: hidden;
+
+  @include up('md') {
+    padding: 190px 20px 120px;
+  }
+}
+
+.glow {
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 680px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(6, 182, 212, 0.08) 50%, transparent 75%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  font-size: 0.85rem;
+  color: $color-text-muted;
+  margin-bottom: 24px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  max-width: 820px;
+  margin-bottom: 20px;
+}
+
+.gradientText {
+  background: $gradient-accent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: $color-text-muted;
+  max-width: 640px;
+  margin-bottom: 36px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.primaryBtn {
+  padding: 14px 28px;
+  border-radius: $radius-md;
+  background: $gradient-accent;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.35);
+  }
+}
+
+.secondaryBtn {
+  padding: 14px 28px;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  font-weight: 600;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: $color-surface-hover;
+    border-color: $color-border-hover;
+  }
+}

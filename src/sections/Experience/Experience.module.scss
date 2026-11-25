@@ -1,0 +1,84 @@
+.section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: $container-max;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.heading {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.downloadBtn {
+  padding: 10px 20px;
+  border-radius: $radius-md;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  border-left: 1px solid $color-border;
+  display: grid;
+  gap: 36px;
+}
+
+.item {
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  left: -34px;
+  top: 6px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: $gradient-accent;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+}
+
+.period {
+  font-family: $font-family-mono;
+  font-size: 0.82rem;
+  color: $color-secondary;
+}
+
+.role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 4px 0 2px;
+}
+
+.company {
+  font-size: 0.95rem;
+  color: $color-text;
+  margin-bottom: 8px;
+}
+
+.summary {
+  color: $color-text-muted;
+  max-width: 680px;
+  font-size: 0.95rem;
+}
